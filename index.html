@@ -11,9 +11,12 @@
             align-items: center;
             height: 100vh;
             margin: 0;
+            position: relative;
+            overflow-x: hidden;
         }
+
         .small-top-left {
-            width: 100%; /* 寬度設為 100% 填滿整行 */
+            width: auto; /* 寬度設為 100% 填滿整行 */
             height: 100px; /* 設定固定高度 */
             position: absolute;
             top: 0;
@@ -50,16 +53,18 @@
             top: 0;
             width: 10px;
             height: 12px;
+            min-width: 10px;
+            min-height: 12px;
             background-color: #4797BDFF;
             opacity: 0.5;
             animation: fall linear infinite;
-            border-radius: 0% 50% 50% 50%;
+            border-radius: 0 50% 50% 50%;
             transform: rotate(-135deg);
         }
 
         .center-message {
             text-align: center;
-            font-size: 30px;
+            font-size: 2rem;
             color: #fff;
             line-height: 1.5;
             font-family: monospace;
@@ -67,6 +72,8 @@
             font-weight: bold;
 
         }
+
+
     </style>
 
 </head>
