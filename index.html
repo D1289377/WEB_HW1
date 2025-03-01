@@ -35,7 +35,28 @@
             bottom: 0;
             right: 0;
             z-index: -1;
-            animation: rain 0.5s linear infinite;
+        }
+        @keyframes fall {
+            0% {
+                transform: translateY(-100%) rotate(45deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(45deg);
+                opacity: 0;
+            }
+        }
+
+        .rain-drop {
+            position: fixed;
+            top: 0;
+            width: 10px;
+            height: 12px;
+            background-color: #4797BDFF;
+            opacity: 0.5;
+            animation: fall linear infinite;
+            border-radius: 0% 50% 50% 50%;
+            transform: rotate(-135deg);
         }
 
         .center-message {
@@ -60,6 +81,30 @@
 <img src="img/rain.png" alt="rain" class="rain">
 
 <script>
+    const MAX_RAINDROPS = 10; // 限制最多 10 個雨滴
+
+    function createRainDrop() {
+        const currentRaindrops = document.querySelectorAll('.rain-drop').length;
+        if (currentRaindrops >= MAX_RAINDROPS) return;
+
+        const rainImg = document.querySelector('.rain');
+        const rainRect = rainImg.getBoundingClientRect();
+
+        const rainDrop = document.createElement('div');
+        rainDrop.classList.add('rain-drop');
+
+        rainDrop.style.left = `${rainRect.left + Math.random() * rainRect.width}px`;
+        rainDrop.style.top = `${rainRect.top - 20}px`;
+        rainDrop.style.animationDuration = `${Math.random() * 2 + 3}s`;
+
+        document.body.appendChild(rainDrop);
+
+        rainDrop.addEventListener('animationend', () => {
+            rainDrop.remove();
+        });
+    }
+
+    setInterval(createRainDrop, 500);
 
 </script>
 
