@@ -13,15 +13,13 @@
             margin: 0;
         }
         .small-top-left {
-            /*讓圖片跟上邊界有一行間隔*/
-            margin-top: 30px;
-            /*讓圖片跟左邊界有一行間隔*/
-            margin-left: 30px;
-            width: 200px; /* Adjust the width as needed */
-            height: auto; /* Maintain aspect ratio */
+            width: 100%; /* 寬度設為 100% 填滿整行 */
+            height: 100px; /* 設定固定高度 */
             position: absolute;
             top: 0;
             left: 0;
+            margin: 0; /* 移除原有的邊距 */
+            object-fit: cover; /* 確保圖片填滿區域且不變形 */
         }
 
         .rain {
@@ -77,7 +75,7 @@
     The website is currently unavailable.<br>
     Please try again later.
 </div>
-<img src="img/webtoon.jpg" alt="webtoon" class="small-top-left">
+<img src="img/webtoon.png" alt="webtoon" class="small-top-left">
 <img src="img/rain.png" alt="rain" class="rain">
 
 <script>
