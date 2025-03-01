@@ -24,7 +24,19 @@
             left: 0;
         }
 
-
+        .rain {
+            /*讓圖片跟右邊界有一行間隔*/
+            margin-right: 30px;
+            /*把rain.png縮小*/
+            width: 200px;
+            height: auto;
+            position: absolute;
+            /*把rain.png放在右下角*/
+            bottom: 0;
+            right: 0;
+            z-index: -1;
+            animation: rain 0.5s linear infinite;
+        }
 
         .center-message {
             text-align: center;
@@ -45,6 +57,7 @@
     Please try again later.
 </div>
 <img src="img/webtoon.jpg" alt="webtoon" class="small-top-left">
+<img src="img/rain.png" alt="rain" class="rain">
 
 <script>
 

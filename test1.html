@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+    @keyframes fall {
+      0% {
+        transform: translateY(-100%) rotate(45deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh) rotate(45deg);
+        opacity: 0;
+      }
+    }
+
+      .rain-drop {
+        position: absolute;
+        top: 0;
+        width: 8px;
+        height: 8px;
+        background-color: #00f;
+        opacity: 0.5;
+        animation: fall linear infinite;
+        border-radius: 0% 50% 50% 50%;
+        transform: rotate(-135deg);
+      }
+  </style>
+</head>
+
+<body>
+    <div class="center-message">
+        The website is currently unavailable.<br>
+        Please try again later.
+    </div>
+    <img src="img/webtoon.jpg" alt="webtoon" class="small-top-left">
+    <img src="img/rain.png" alt="rain" class="rain">
+
+    <script>
+        function createRainDrop() {
+            const rainDrop = document.createElement('div');
+            rainDrop.classList.add('rain-drop');
+            rainDrop.style.left = `${Math.random() * 100}vw`;
+            rainDrop.style.animationDuration = `${Math.random() * 2 + 1}s`;
+            document.body.appendChild(rainDrop);
+
+            setTimeout(() => {
+                rainDrop.remove();
+            }, 3000);
+        }
+
+        setInterval(createRainDrop, 100);
+    </script>
+
+</body>
+</html>
