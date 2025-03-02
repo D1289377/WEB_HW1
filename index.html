@@ -3,13 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>WEB_HW1</title>
-    <!--搜尋-->
-    <search class="search-container">
-        <form action="./search/">
-            <input type="search" id="comics" name="q" />
-            <button type="submit">搜尋</button>
-        </form>
-    </search>
 
     <style>
 
@@ -79,7 +72,13 @@
             font-family: monospace;
             /*讓字體變粗*/
             font-weight: bold;
-
+            /* 添加白色框框和內距 */
+            border: 5px solid #fff;
+            padding: 30px;
+            /* 讓框框有圓角 */
+            border-radius: 10px;
+            /* 添加動畫 */
+            animation: blink 2s infinite;
         }
 
         .search-container {
@@ -115,6 +114,15 @@
 
 </head>
 <body>
+<!--搜尋-->
+<search class="search-container">
+    <form action="./search/">
+        <label for="comics"></label>
+        <input type="search" id="comics" name="q" />
+        <button type="submit">搜尋</button>
+    </form>
+</search>
+
 <div class="center-message">
     The website is currently unavailable.<br>
     Please try again later.
