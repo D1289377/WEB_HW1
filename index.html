@@ -5,7 +5,6 @@
     <title>WEB_HW1</title>
 
     <style>
-
         body {
             background-color: #04dc64;
             display: flex;
@@ -17,6 +16,7 @@
             overflow-x: hidden;
         }
 
+        /*webtoon.png設定*/
         .small-top-left {
             width: auto; /* 寬度設為 100% 填滿整行 */
             height: 100px; /* 設定固定高度 */
@@ -27,6 +27,7 @@
             object-fit: cover; /* 確保圖片填滿區域且不變形 */
         }
 
+        /*rain.png設定*/
         .rain {
             /*讓圖片跟右邊界有一行間隔*/
             margin-right: 30px;
@@ -37,8 +38,10 @@
             /*把rain.png放在右下角*/
             bottom: 0;
             right: 0;
-            z-index: -1;
+            z-index: 1;
         }
+
+        /*雨滴動畫*/
         @keyframes fall {
             0% {
                 transform: translateY(-100%) rotate(45deg);
@@ -50,8 +53,9 @@
             }
         }
 
+        /*雨滴落下*/
         .rain-drop {
-            position: fixed;
+            position: absolute;
             top: 0;
             width: 10px;
             height: 12px;
@@ -64,6 +68,7 @@
             transform: rotate(-135deg);
         }
 
+        /*訊息框*/
         .center-message {
             text-align: center;
             font-size: 2rem;
@@ -77,10 +82,9 @@
             padding: 30px;
             /* 讓框框有圓角 */
             border-radius: 10px;
-            /* 添加動畫 */
-            animation: blink 2s infinite;
         }
 
+        /*搜尋框*/
         .search-container {
             position: fixed;
             top: 30px;
@@ -95,6 +99,7 @@
             margin-right: 8px;
         }
 
+        /*搜尋按紐*/
         .search-container button {
             padding: 8px 15px;
             background-color: #53bd47;
@@ -115,18 +120,19 @@
 </head>
 <body>
 <!--搜尋-->
-<search class="search-container">
+<div class="search-container">
     <form action="./search/">
         <label for="comics"></label>
         <input type="search" id="comics" name="q" />
         <button type="submit">搜尋</button>
     </form>
-</search>
+</div>
 
 <div class="center-message">
     The website is currently unavailable.<br>
     Please try again later.
 </div>
+
 <img src="img/webtoon.png" alt="webtoon" class="small-top-left">
 <img src="img/rain.png" alt="rain" class="rain">
 
@@ -157,8 +163,6 @@
     setInterval(createRainDrop, 500);
 
 </script>
-
-
 
 </body>
 </html>
